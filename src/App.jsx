@@ -7,6 +7,7 @@ import Skills from './components/Skills';
 import Experience from './components/Experience';
 import About from './components/About';
 import Education from './components/Education';
+import AdditionalDetails from './components/Additional Details';
 
 export default function App() {
   return (
@@ -41,6 +42,12 @@ export default function App() {
   <section id="education" className="border-t border-white/5 py-24">
     <div className="mx-auto max-w-6xl px-6">
       <Education />
+    </div>
+  </section>
+
+   <section id="additional" className="border-t border-white/5 py-24">
+    <div className="mx-auto max-w-6xl px-6">
+      <AdditionalDetails />
     </div>
   </section>
 
