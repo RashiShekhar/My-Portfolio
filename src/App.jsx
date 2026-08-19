@@ -3,6 +3,7 @@ import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import { Component } from 'react'
 import Projects from './components/Projects';
+import Skills from './components/Skills';
 
 export default function App() {
   return (
@@ -19,6 +20,12 @@ export default function App() {
   <section id="projects" className="border-t border-white/5 py-24">
     <div className="mx-auto max-w-6xl px-6">
       <Projects />
+    </div>
+  </section>
+
+  <section id="skills" className="border-t border-white/5 py-24">
+    <div className="mx-auto max-w-6xl px-6">
+      <Skills />
     </div>
   </section>
 
