@@ -4,6 +4,7 @@ import Hero from './components/Hero'
 import { Component } from 'react'
 import Projects from './components/Projects';
 import Skills from './components/Skills';
+import Experience from './components/Experience';
 
 export default function App() {
   return (
@@ -26,6 +27,12 @@ export default function App() {
   <section id="skills" className="border-t border-white/5 py-24">
     <div className="mx-auto max-w-6xl px-6">
       <Skills />
+    </div>
+  </section>
+
+  <section id="experience" className="border-t border-white/5 py-24">
+    <div className="mx-auto max-w-6xl px-6">
+      <Experience />
     </div>
   </section>
 
