@@ -1,124 +1,110 @@
+import React from 'react';
+
 function Hero() {
+  const quickSkills = ["React.js", "Node.js", "MongoDB", "TypeScript", "Tailwind CSS"];
+
   return (
-    <section id="home" className="py-24">
-      <div className="mx-auto grid max-w-6xl items-center gap-16 px-6 md:grid-cols-2">
+    <section id="home" className="relative overflow-hidden py-16 sm:py-24 md:py-32">
+      {/* Background Ambient Glow */}
+      <div className="pointer-events-none absolute -top-40 left-1/2 -z-10 h-72 w-72 sm:h-96 sm:w-96 -translate-x-1/2 rounded-full bg-violet-600/15 blur-[100px] sm:blur-[120px]" />
 
-        {/* Left Side */}
-        <div>
-          <p className="mb-4 font-zed-sans text-sm font-medium uppercase tracking-widest text-violet-400">
-            Hello, I'm
-          </p>
+      <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-12 lg:gap-8">
 
-          <h1 className="font-zed-sans text-5xl font-bold leading-tight text-white md:text-6xl">
-            Rashi Shekhar
+        {/* Left Column */}
+        <div className="lg:col-span-7">
+          
+          <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-violet-500/20 bg-violet-500/10 px-3.5 py-1 text-xs font-medium uppercase tracking-wider text-violet-300">
+            <span className="h-2 w-2 rounded-full bg-violet-400 animate-pulse" />
+            Software Engineer & Developer
+          </div>
+
+          <h1 className="text-3xl font-extrabold tracking-tight text-white xs:text-4xl sm:text-5xl md:text-6xl">
+            Hi, I’m <span className="bg-gradient-to-r from-violet-400 to-indigo-300 bg-clip-text text-transparent">Rashi Shekhar</span>
           </h1>
 
-          <h2 className="mt-4 font-zed-sans text-2xl font-semibold text-slate-300">
-            Full-Stack Developer 💻
-          </h2>
-
-          <p className="mt-6 max-w-xl font-zed-sans text-lg leading-8 text-slate-400">
-            I build modern, responsive, and user-friendly web experiences
-            using React, Node.js, and modern web technologies.
+          <p className="mt-3 text-base font-medium text-slate-300 sm:text-xl">
+            Full-Stack Developer & MCA Scholar
           </p>
 
-          {/* Buttons */}
-          <div className="mt-8 flex flex-wrap gap-4">
+          <div className="mt-3 flex items-center gap-1.5 text-xs text-slate-400">
+            <svg className="h-4 w-4 shrink-0 text-violet-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.75" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.75" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            <span className="truncate">Rae Bareli, Uttar Pradesh, India</span>
+          </div>
+
+          <p className="mt-5 max-w-xl text-sm leading-relaxed text-slate-400 sm:text-base sm:leading-7">
+            I specialize in crafting high-performance, responsive web applications with the MERN stack, combining clean frontend interfaces with secure, scalable backend architectures.
+          </p>
+
+          {/* CTA Buttons */}
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
             <a
               href="#projects"
-              className="rounded-lg bg-violet-500 px-6 py-3 font-medium text-white transition hover:bg-violet-600"
+              className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl bg-violet-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-violet-600/25 transition-all duration-200 hover:bg-violet-500 hover:shadow-violet-600/35"
             >
-              View Projects →
+              <span>Explore Projects</span>
+              <span>→</span>
             </a>
 
             <a
               href="#contact"
-              className="rounded-lg border border-white/10 px-6 py-3 font-medium text-slate-300 transition hover:border-violet-400 hover:text-violet-400"
+              className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl border border-slate-800 bg-slate-900/60 px-6 py-3 text-sm font-semibold text-slate-300 backdrop-blur-md transition-all duration-200 hover:border-slate-700 hover:bg-slate-900 hover:text-white"
             >
-              Contact Me
+              <span>Get In Touch</span>
             </a>
           </div>
 
-          {/* Tech Stack */}
-          <div className="mt-10 flex flex-wrap gap-3">
-            <span className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm text-slate-300">
-              React.js
+          {/* Tech Stack Pills */}
+          <div className="mt-8 flex flex-wrap items-center gap-2 pt-6 border-t border-slate-800/60">
+            <span className="mr-1 text-xs font-semibold uppercase tracking-wider text-slate-500">
+              Stack:
             </span>
-
-            <span className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm text-slate-300">
-              Node.js
-            </span>
-
-            <span className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm text-slate-300">
-              MongoDB
-            </span>
-
-            <span className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm text-slate-300">
-              Next.js
-            </span>
+            {quickSkills.map((tech) => (
+              <span
+                key={tech}
+                className="rounded-lg border border-slate-800 bg-slate-900/80 px-2.5 py-1 text-xs font-medium text-slate-300"
+              >
+                {tech}
+              </span>
+            ))}
           </div>
+
         </div>
 
-        {/* Right Side - Code Editor */}
-        <div className="overflow-hidden rounded-2xl border border-white/10 bg-[#111C32] shadow-2xl">
+        {/* Right Column: Code Editor */}
+        <div className="w-full min-w-0 lg:col-span-5">
+          <div className="overflow-hidden rounded-2xl border border-slate-800 bg-slate-950/80 shadow-2xl backdrop-blur-xl">
+            
+            <div className="flex items-center justify-between border-b border-slate-800/80 bg-slate-900/60 px-4 py-3">
+              <div className="flex items-center gap-1.5">
+                <span className="h-2.5 w-2.5 rounded-full bg-red-500/80" />
+                <span className="h-2.5 w-2.5 rounded-full bg-amber-500/80" />
+                <span className="h-2.5 w-2.5 rounded-full bg-emerald-500/80" />
+              </div>
+              <span className="font-mono text-xs text-slate-400">developer.ts</span>
+              <div className="h-2.5 w-2.5 opacity-0" />
+            </div>
 
-          {/* Editor Header */}
-          <div className="flex items-center gap-2 border-b border-white/10 px-5 py-4">
-            <span className="h-3 w-3 rounded-full bg-red-400"></span>
-            <span className="h-3 w-3 rounded-full bg-yellow-400"></span>
-            <span className="h-3 w-3 rounded-full bg-green-400"></span>
+            <div className="p-4 sm:p-5 font-mono text-[11px] leading-5 sm:text-xs sm:leading-6">
+              <div className="flex gap-3 sm:gap-4">
+                <div className="select-none text-slate-600 text-right">
+                  <p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p><p>7</p>
+                </div>
 
-            <span className="ml-3 font-mono text-sm text-slate-400">
-              about.ts
-            </span>
-          </div>
+                <div className="min-w-0 flex-1 overflow-x-auto whitespace-pre text-slate-300">
+                  <p><span className="text-violet-400">const</span> <span className="text-sky-300">developer</span> = {"{"}</p>
+                  <p className="pl-3 sm:pl-4">name: <span className="text-emerald-300">"Rashi Shekhar"</span>,</p>
+                  <p className="pl-3 sm:pl-4">focus: <span className="text-emerald-300">"Full-Stack Dev"</span>,</p>
+                  <p className="pl-3 sm:pl-4">stack: [<span className="text-emerald-300">"React"</span>, <span className="text-emerald-300">"Node"</span>, <span className="text-emerald-300">"MongoDB"</span>],</p>
+                  <p className="pl-3 sm:pl-4">learning: [<span className="text-emerald-300">"AI"</span>, <span className="text-emerald-300">"Cloud"</span>],</p>
+                  <p className="pl-3 sm:pl-4">status: <span className="text-amber-300">"Available"</span></p>
+                  <p>{"};"}</p>
+                </div>
+              </div>
+            </div>
 
-          {/* Code */}
-          <div className="overflow-x-auto p-6 font-mono text-sm leading-8">
-            <p>
-              <span className="text-violet-400">const</span>{" "}
-              <span className="text-sky-300">developer</span>{" "}
-              <span className="text-slate-400">=</span>{" "}
-              <span className="text-slate-300">{"{"}</span>
-            </p>
-
-            <p className="pl-6">
-              <span className="text-sky-300">name</span>
-              <span className="text-slate-400">:</span>{" "}
-              <span className="text-green-300">"Rashi"</span>
-              <span className="text-slate-400">,</span>
-            </p>
-
-            <p className="pl-6">
-              <span className="text-sky-300">role</span>
-              <span className="text-slate-400">:</span>{" "}
-              <span className="text-green-300">
-                "Full Stack Developer"
-              </span>
-              <span className="text-slate-400">,</span>
-            </p>
-
-            <p className="pl-6">
-              <span className="text-sky-300">passion</span>
-              <span className="text-slate-400">:</span>{" "}
-              <span className="text-green-300">
-                "Building things"
-              </span>
-              <span className="text-slate-400">,</span>
-            </p>
-
-            <p className="pl-6">
-              <span className="text-sky-300">learning</span>
-              <span className="text-slate-400">:</span>{" "}
-              <span className="text-slate-300">[</span>
-              <span className="text-green-300">"AI"</span>
-              <span className="text-slate-400">, </span>
-              <span className="text-green-300">"DL"</span>
-              <span className="text-slate-300">]</span>
-              <span className="text-slate-400">,</span>
-            </p>
-
-            <p className="text-slate-300">{"};"}</p>
           </div>
         </div>
 

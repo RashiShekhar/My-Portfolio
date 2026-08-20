@@ -1,152 +1,105 @@
+import React from 'react';
+
 function Skills() {
-  const frontend = [
-    "React",
-    "JavaScript",
-    "HTML",
-    "CSS",
-    "Tailwind CSS",
-  ];
-
-  const backend = [
-    "Node.js",
-    "Express.js",
-    "PHP",
-    "APIs",
-    "Postman",
-  ];
-
-  const database = [
-    "MongoDB",
-    "PostgreSQL",
-    "MySQL",
-    "SQL",
-    "NoSQL",
-    "DBMS",
-  ];
-
-  const programming = [
-    "Python",
-    "C",
-    "GitHub",
+  const skillCategories = [
+    {
+      title: "Frontend Development",
+      description: "Crafting intuitive, responsive user interfaces",
+      icon: (
+        <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.75" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+        </svg>
+      ),
+      skills: ["React.js", "JavaScript (ES6+)", "HTML5", "CSS3", "Tailwind CSS"],
+    },
+    {
+      title: "Backend Development",
+      description: "Building scalable server logic and REST architectures",
+      icon: (
+        <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.75" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" />
+        </svg>
+      ),
+      skills: ["Node.js", "Express.js", "PHP", "RESTful APIs", "Postman"],
+    },
+    {
+      title: "Databases & Storage",
+      description: "Structuring schemas, relational tables, and document stores",
+      icon: (
+        <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.75" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
+        </svg>
+      ),
+      skills: ["MongoDB", "PostgreSQL", "MySQL", "SQL Queries", "Prisma ORM"],
+    },
+    {
+      title: "Languages & Tooling",
+      description: "Core programming paradigms, versioning, and environment tools",
+      icon: (
+        <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.75" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.75" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+        </svg>
+      ),
+      skills: ["Python", "C Language", "Git & GitHub", "VS Code", "Linux Terminal"],
+    },
   ];
 
   return (
-    <section id="skills">
-      <div className="mx-auto max-w-6xl px-6 py-24">
+    <section id="skills" className="relative py-24">
+      <div className="mx-auto max-w-6xl px-6">
 
-        {/* Section Heading */}
-        <p className="mb-2 text-sm font-medium uppercase tracking-widest text-violet-400">
-          What I Know
-        </p>
+        {/* Section Header */}
+        <div className="flex flex-col items-start gap-2">
+          <span className="inline-flex items-center gap-2 rounded-full border border-violet-500/20 bg-violet-500/10 px-3.5 py-1 text-xs font-medium uppercase tracking-wider text-violet-300">
+            Technical Stack
+          </span>
+          <h2 className="text-3xl font-extrabold tracking-tight text-white md:text-4xl">
+            Skills & Technologies
+          </h2>
+          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-slate-400 sm:text-base">
+            A comprehensive set of tools, frameworks, and programming languages I use to bring ideas to life.
+          </p>
+        </div>
 
-        <h2 className="text-4xl font-bold text-white">
-          Skills & Technologies
-        </h2>
-
-        <p className="mt-4 max-w-2xl text-slate-400">
-          Technologies and tools I use to build, develop, and manage
-          modern web applications.
-        </p>
-
-        {/* Skills Grid */}
+        {/* Categories Grid */}
         <div className="mt-12 grid gap-6 md:grid-cols-2">
+          {skillCategories.map((category) => (
+            <div
+              key={category.title}
+              className="group relative overflow-hidden rounded-2xl border border-slate-800/80 bg-slate-950/60 p-7 shadow-lg backdrop-blur-md transition-all duration-300 hover:border-slate-700 hover:bg-slate-900/40"
+            >
+              
+              {/* Category Header */}
+              <div className="flex items-start gap-4">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-violet-500/20 bg-violet-500/10 text-violet-400 transition-colors duration-300 group-hover:bg-violet-500 group-hover:text-white">
+                  {category.icon}
+                </div>
 
-          {/* Frontend */}
-          <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
-            <div className="mb-5 flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-violet-500/10 text-violet-400">
-                {"</>"}
+                <div>
+                  <h3 className="text-lg font-semibold tracking-tight text-white transition-colors group-hover:text-violet-300">
+                    {category.title}
+                  </h3>
+                  <p className="text-xs text-slate-400 mt-0.5">
+                    {category.description}
+                  </p>
+                </div>
               </div>
 
-              <h3 className="text-xl font-semibold text-white">
-                Frontend Development
-              </h3>
-            </div>
-
-            <div className="flex flex-wrap gap-2">
-              {frontend.map((skill) => (
-                <span
-                  key={skill}
-                  className="rounded-full border border-white/10 bg-[#111C32] px-4 py-2 text-sm text-slate-300 transition hover:border-violet-400/50 hover:text-violet-400"
-                >
-                  {skill}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          {/* Backend */}
-          <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
-            <div className="mb-5 flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-violet-500/10 text-violet-400">
-                {"{ }"}
+              {/* Skills Tags */}
+              <div className="mt-6 flex flex-wrap gap-2 pt-4 border-t border-slate-800/60">
+                {category.skills.map((skill) => (
+                  <span
+                    key={skill}
+                    className="inline-flex items-center rounded-lg border border-slate-800 bg-slate-900/80 px-3 py-1.5 text-xs font-medium text-slate-300 transition-all duration-200 hover:border-violet-500/30 hover:bg-slate-800 hover:text-white"
+                  >
+                    {skill}
+                  </span>
+                ))}
               </div>
 
-              <h3 className="text-xl font-semibold text-white">
-                Backend Development
-              </h3>
             </div>
-
-            <div className="flex flex-wrap gap-2">
-              {backend.map((skill) => (
-                <span
-                  key={skill}
-                  className="rounded-full border border-white/10 bg-[#111C32] px-4 py-2 text-sm text-slate-300 transition hover:border-violet-400/50 hover:text-violet-400"
-                >
-                  {skill}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          {/* Database */}
-          <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
-            <div className="mb-5 flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-violet-500/10 text-violet-400">
-                {"DB"}
-              </div>
-
-              <h3 className="text-xl font-semibold text-white">
-                Databases
-              </h3>
-            </div>
-
-            <div className="flex flex-wrap gap-2">
-              {database.map((skill) => (
-                <span
-                  key={skill}
-                  className="rounded-full border border-white/10 bg-[#111C32] px-4 py-2 text-sm text-slate-300 transition hover:border-violet-400/50 hover:text-violet-400"
-                >
-                  {skill}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          {/* Programming & Tools */}
-          <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
-            <div className="mb-5 flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-violet-500/10 text-violet-400">
-                {"⚙"}
-              </div>
-
-              <h3 className="text-xl font-semibold text-white">
-                Programming & Tools
-              </h3>
-            </div>
-
-            <div className="flex flex-wrap gap-2">
-              {programming.map((skill) => (
-                <span
-                  key={skill}
-                  className="rounded-full border border-white/10 bg-[#111C32] px-4 py-2 text-sm text-slate-300 transition hover:border-violet-400/50 hover:text-violet-400"
-                >
-                  {skill}
-                </span>
-              ))}
-            </div>
-          </div>
-
+          ))}
         </div>
 
       </div>
