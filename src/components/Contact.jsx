@@ -42,7 +42,7 @@ function Contact() {
                   Email Me
                 </p>
                 <p className="truncate text-xs sm:text-sm font-medium text-slate-200 group-hover:text-violet-300">
-                  rashi1shekhar@gmail.com
+                  rashi@megstat.com
                 </p>
               </div>
             </a>
